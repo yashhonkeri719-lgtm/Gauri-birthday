@@ -129,7 +129,6 @@ body{margin:0;padding:0;font-family:"Cursive",sans-serif;background:linear-gradi
 <body>
   <!-- Background Birthday Song -->
   <audio id="birthdaySong" src="audio/happy_birthday.mp3" autoplay loop></audio>
-<button class="btn" onclick="toggleSong()" style="position:absolute; top:20px; right:20px;">🎵 Play/Pause</button>
 <!-- Page 1 -->
 <div class="page active" id="page1">
   <div class="content">
@@ -341,6 +340,44 @@ function launchFirecracker(){
   setTimeout(()=>fc.remove(),800);
 }
 setInterval(launchFirecracker,500);
+function toggleSong(){
+  const song = document.getElementById("birthdaySong");
+  if(song.paused){
+    song.play();
+  } else {
+    song.pause();
+  }
+// Autoplay birthday song
+window.addEventListener('load', () => {
+  const song = document.getElementById('birthdaySong');
+  song.play().catch(() => {
+    // If autoplay is blocked, play on first user click
+    document.body.addEventListener('click', () => {
+      song.play();
+    }, { once: true });
+  });
+});
+
+// Optional play/pause button
+function toggleSong(){
+  const song = document.getElementById("birthdaySong");
+  if(song.paused){
+    song.play();
+  } else {
+    song.pause();
+  }
+// Autoplay birthday song
+window.addEventListener('load', () => {
+  const song = document.getElementById('birthdaySong');
+  song.play().catch(() => {
+    // If autoplay is blocked, play on first user click
+    document.body.addEventListener('click', () => {
+      song.play();
+    }, { once: true });
+  });
+});
+
+// Optional play/pause button
 function toggleSong(){
   const song = document.getElementById("birthdaySong");
   if(song.paused){
