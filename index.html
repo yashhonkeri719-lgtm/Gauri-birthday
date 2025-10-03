@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Gauri 🎂</title>
+<style>
+body{margin:0;padding:0;font-family:"Cursive",sans-serif;background:linear-gradient(135deg,#ffd1dc,#ffe4e1,#fff0f5);color:#d6336c;overflow:hidden;}
+.page{position:absolute;width:100%;height:100%;top:0;left:100%;display:flex;justify-content:center;align-items:center;opacity:0;transform:perspective(1000px) rotateY(90deg);transition:all 1s ease;}
+.page.active{left:0;opacity:1;transform:perspective(1000px) rotateY(0deg);}
+.page.prev{left:-100%;opacity:0;transform:perspective(1000px) rotateY(-90deg);}
+.content{width:90%;max-width:450px;text-align:center;}
+.letter{background:#fff;padding:25px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.2);text-align:left;line-height:1.5;position:relative;}
+.letter::before,.letter::after{content:"🎀";position:absolute;font-size:22px;top:8px;}
+.letter::before{left:12px;}
+.letter::after{right:12px;}
+.memories{display:flex;flex-direction:column;gap:20px;align-items:center;}
+.memories img{width:70%;max-width:280px;border-radius:15px;box-shadow:0 4px 10px rgba(0,0,0,0.3);}
+.memories img:nth-child(odd){transform:translateX(-20px);}
+.memories img:nth-child(even){transform:translateX(20px);}
+.cake-container{display:flex;flex-direction:column;align-items:center;}
+.cake{margin:20px auto;position:relative;width:120px;}
+.layer{width:120px;height:40px;background:pink;border-radius:8px;margin:0 auto;border:2px solid #fff;}
+.layer:nth-child(1){background:#ffe4e1;width:100px;}
+.layer:nth-child(2){background:#ffc0cb;width:110px;}
+.layer:nth-child(3){background:#ffb6c1;width:120px;}
+.cherry{width:15px;height:15px;background:red;border-radius:50%;position:absolute;top:-10px;left:50%;transform:translateX(-50%);}
+.balloon{position:absolute;bottom:-100px;width:40px;height:55px;background:pink;border-radius:50%;animation:floatUp 8s linear infinite;}
+@keyframes floatUp{from{transform:translateY(0);opacity:1;}to{transform:translateY(-120vh);opacity:0;}}
+.sparkle{position:absolute;color:gold;font-size:18px;animation:fall 3s linear infinite;}
+@keyframes fall{0%{transform:translateY(-20px);opacity:1;}100%{transform:translateY(100vh);opacity:0;}}
+.cracker{position:absolute;width:6px;height:6px;background:yellow;border-radius:50%;animation:explode 1s linear forwards;}
+@keyframes explode{from{transform:scale(1);opacity:1;}to{transform:scale(4);opacity:0;}}
+.decor{position:absolute;font-size:18px;opacity:0.7;animation: floatDecor 5s infinite ease-in-out;}
+@keyframes floatDecor{0%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-10px) rotate(15deg);}100%{transform:translateY(0) rotate(0deg);}}
+.btn{margin-top:20px;padding:10px 20px;background:#ff4d6d;color:white;border:none;border-radius:20px;cursor:pointer;font-size:16px;}
+.btn:hover{background:#d6336c;}
+/* Piñata */
+#nail{width:12px;height:12px;background:black;border-radius:50%;position:absolute;top:20px;left:50%;transform:translateX(-50%);}
+#pinata-container{position:absolute;top:150px;left:50%;transform-origin:top center;}
+#rope{width:4px;height:150px;background:black;transform-origin:top center;margin:0 auto;}
+#pinata{font-size:80px;cursor:pointer;display:block;text-align:center;margin-top:-10px;}
+#pinata.broken{animation:breakFade 1s forwards;}
+@keyframes breakFade{0%{transform:scale(1) rotate(0deg);opacity:1;}30%{transform:scale(1.2) rotate(15deg);opacity:0.8;}60%{transform:scale(0.8) rotate(-20deg);opacity:0.5;}100%{transform:scale(0) rotate(45deg);opacity:0;}}
+.drop{position:absolute;font-size:40px;}
+/* Heart Page */
+.heart{position:absolute;font-size:50px;cursor:pointer;user-select:none;opacity:0;transition:opacity 0.5s,transform 0.2s;}
+.loveMsg{position:absolute;font-size:20px;color:red;font-weight:bold;user-select:none;}
+
+/* Page 1 Text Animation */
+#page1 h1{
+  position:relative;
+  top:-100px;
+  opacity:0;
+  animation: dropDown 1s forwards;
+}
+@keyframes dropDown{
+  to{
+    top:0;
+    opacity:1;
+  }
+}
+
+/* Page 6 Sparkles */
+.sparkleBox{
+  position:absolute;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
+.sparkleDiv{
+  position:absolute;
+  width:6px;
+  height:6px;
+  background:gold;
+  border-radius:50%;
+  opacity:0.8;
+  animation:fall 3s linear infinite;
+}
+@keyframes fall{
+  0%{transform:translateY(-10px); opacity:1;}
+  100%{transform:translateY(100vh); opacity:0;}
+}
+
+/* Page 6 Balloons */
+.balloonDiv{
+  position:absolute;
+  width:30px;
+  height:40px;
+  background:pink;
+  border-radius:50% 50% 50% 50%;
+  animation:floatUp 8s linear infinite;
+}
+@keyframes floatUp{
+  0%{transform:translateY(100vh);}
+  100%{transform:translateY(-50px);}
+}
+
+/* Page 6 Firecrackers */
+.firecracker{
+  position:absolute;
+  width:4px;
+  height:20px;
+  background:red;
+  animation:explodeFire 0.8s forwards;
+}
+@keyframes explodeFire{
+  0%{transform:scale(1) translateY(0); opacity:1;}
+  50%{transform:scale(1.5) translateY(-20px); opacity:1;}
+  100%{transform:scale(0) translateY(-40px); opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<!-- Page 1 -->
+<div class="page active" id="page1">
+  <div class="content">
+    <h1>🎂 Happy Birthday Gauri 🎂</h1>
+    <button class="btn" onclick="nextPage()">Next ➡</button>
+  </div>
+</div>
+
+<!-- Page 2 Letter -->
+<div class="page" id="page2">
+  <div class="content">
+    <div class="letter">
+      <h2 style="text-align:center;">A Letter for You 💌</h2>
+      <p>
+Hello my little queen..hope you like the website it's my first try so thoda co oprate please..😓...let me say sorry what all I did in past few month I know I was being rude angry and more sorry a lot I know I was wrong and now Im change dont worry just chill...woh sab chhod...happy birthday 5ft😂 tall just kidding happy birthday baala 💗 Aaj ka din sirf tumhare liye hai, aur main chahta hu ki tumhari har ek smile itni bright ho jitni tumhari aankhon ki chamak hai. You make my world so colorful, and honestly… I can’t stop falling for you, again and again 😩🫵🫶 tum great ho maam ji i know it's look cringe for other and maybe for you also but it's my love for you
+      </p>
+      <p>
+tere liye 2 line socha hu sunna pasand karengi? Puch kya rha hu sunna padega sun chup se👋<br>
+Pal pal dil ke paas, tum rehti ho…sapno mein bhi bas tum hi tum dikhte ho 🙈 wahh wahh wahh wahh 👏😆
+      </p>
+      <p>
+Bolna toh bohot kuch chahta hu but yeh website load lenga ki nhi kya pta toh abhi ke liye bas itna he whatapp mein bolunga don't worry and haa last but not least...On this special day, I wish I could hug you forever, make you laugh nonstop, and whisper in your ear how much I love you...once again HAPPY BIRTHDAY MY SWEETEST PERSON 🥰💓
+      </p>
+      <button class="btn" onclick="nextPage()">Next ➡</button>
+    </div>
+  </div>
+</div>
+
+<!-- Page 3 Memories -->
+<div class="page" id="page3">
+  <div class="content">
+    <h2>Our Memories 📸</h2>
+    <div class="memories">
+      <img src="Moustache_us_1.jpg" alt="Memory 1">
+      <img src="Happy_us_2.jpg" alt="Memory 2">
+      <img src="Cute_us_3.jpg" alt="Memory 3">
+      <img src="Kiss_us_4.jpg" alt="Memory 4">
+    </div>
+    <button class="btn" onclick="nextPage()">Next ➡</button>
+  </div>
+</div>
+
+<!-- Page 4 Hearts -->
+<div class="page" id="page4">
+  <div class="content" style="position:relative;width:100%;height:100%;">
+    <h2 style="margin-top:70px;">💖 Tap the Hearts! 💖</h2>
+  </div>
+  <button class="btn" onclick="nextPage()" style="position:absolute; bottom:100px; left:50%; transform:translateX(-50%);">Next ➡</button>
+</div>
+
+<!-- Page 5 Piñata -->
+<div class="page" id="page5">
+  <div class="content" style="position:relative;width:100%;height:100%;">
+    <h1 style="margin-top:20px;">🎊 Break the Piñata! 🐴</h1>
+    <div id="nail"></div>
+    <div id="pinata-container">
+      <div id="rope"></div>
+      <div id="pinata">🐴</div>
+    </div>
+    <button class="btn" onclick="nextPage()" style="position:absolute; bottom:100px; left:50%; transform:translateX(-50%);">Next ➡</button>
+  </div>
+</div>
+
+<!-- Page 6 Cake -->
+<div class="page" id="page6">
+  <div class="content cake-container">
+    <h1>🎉 Happy Birthday Gauri 🎉</h1>
+    <l<img src="assets/cake.png" alt="Birthday Cake" style="width:250px; margin:20px auto; display:block;">
+    <button class="btn" onclick="alert('🎉 The End! Happy Birthday Gauri! 🎉');" style="position:absolute; bottom:20px; left:50%; transform:translateX(-50%);">End 🎉</button>
+  </div>
+</div>
+
+<script>
+// Page navigation
+let currentPage=1;
+const pages=document.querySelectorAll(".page");
+function nextPage(){
+  pages[currentPage-1].classList.remove("active");
+  pages[currentPage-1].classList.add("prev");
+  currentPage++;
+  if(currentPage>pages.length) currentPage=pages.length;
+  pages[currentPage-1].classList.add("active");
+}
+
+// Floating emojis
+const decos=["💋","💓","💗","❤"];
+for(let i=0;i<30;i++){
+  let d=document.createElement("div");
+  d.className="decor";
+  d.innerText=decos[Math.floor(Math.random()*decos.length)];
+  d.style.top=Math.random()*100+"%";
+  d.style.left=Math.random()*100+"%";
+  document.body.appendChild(d);
+}
+
+// Page 4 Hearts
+const page4=document.getElementById("page4");
+const hearts=[];
+for(let i=0;i<12;i++){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerText="💖";
+  page4.appendChild(h);
+  hearts.push(h);
+}
+function placeHeart(h){
+  h.style.left=Math.random()*(page4.clientWidth-50)+"px";
+  h.style.top=(80+Math.random()*(page4.clientHeight-200))+"px";
+  h.style.opacity="1";
+}
+hearts.forEach(placeHeart);
+hearts.forEach(h=>{
+  h.addEventListener("click",()=>{
+    const msg=document.createElement("div");
+    msg.className="loveMsg";
+    msg.innerText="I ❤️ You";
+    msg.style.left=h.style.left;
+    msg.style.top=h.style.top;
+    page4.appendChild(msg);
+    h.style.opacity="0";
+    setTimeout(()=>{
+      msg.remove();
+      placeHeart(h);
+    },1000);
+  });
+});
+
+// Piñata Page
+const pinata=document.getElementById("pinata");
+const container=document.getElementById("pinata-container");
+const items=["🍫","🍭","🍬","🍪"];
+let clickCount=0,isBroken=false;
+let angle=0,velocity=0,damping=0.995,amplitude=2;
+
+function animateSwing(){
+  if(!isBroken){
+    const gravity=0.0012;
+    velocity+=-Math.sin(angle*Math.PI/180)*gravity*1000;
+    velocity*=damping;
+    angle+=velocity;
+    container.style.transform=`translateX(-50%) rotate(${angle}deg)`;
+  }
+  requestAnimationFrame(animateSwing);
+}
+animateSwing();
+
+function hitSwing(force){velocity+=force;}
+
+pinata.addEventListener("click", ()=>{
+  if(isBroken) return;
+  clickCount++;
+  hitSwing(amplitude);
+  if(clickCount>=3 && clickCount<=6){
+    dropItems(3+clickCount);
+  }
+  if(clickCount===7){
+    dropItems(30);
+    isBroken=true;
+    pinata.classList.add("broken");
+  }
+});
+
+function dropItems(count){
+  const rect=pinata.getBoundingClientRect();
+  const bottomY=window.innerHeight-60;
+  for(let i=0;i<count;i++){
+    let drop=document.createElement("div");
+    drop.className="drop";
+    drop.innerHTML=items[Math.floor(Math.random()*items.length)];
+    document.body.appendChild(drop);
+    const horizontalOffset=(Math.random()-0.5)*100;
+    const startX=rect.left+rect.width/2+horizontalOffset;
+    drop.animate([
+      {transform:`translate(${startX}px, ${rect.bottom}px)`},
+      {transform:`translate(${startX}px, ${bottomY}px)`}
+    ],{duration:1200,easing:'ease-out',fill:'forwards'});
+    setTimeout(()=>drop.remove(),1500);
+  }
+}
+
+// Page 6 Sparkles, Balloons, Firecrackers
+const page6=document.getElementById("page6");
+
+// Sparkles
+for(let i=0;i<30;i++){
+  const sp=document.createElement("div");
+  sp.className="sparkleDiv";
+  sp.style.left=Math.random()*100+"%";
+  sp.style.top=Math.random()*-50+"px";
+  page6.appendChild(sp);
+}
+
+// Balloons
+for(let i=0;i<6;i++){
+  const bl=document.createElement("div");
+  bl.className="balloonDiv";
+  bl.style.left=Math.random()*90+"%";
+  bl.style.animationDelay=(Math.random()*5)+"s";
+  page6.appendChild(bl);
+}
+
+// Firecrackers
+function launchFirecracker(){
+  const fc=document.createElement("div");
+  fc.className="firecracker";
+  fc.style.left=Math.random()*90+"%";
+  fc.style.bottom="0px";
+  page6.appendChild(fc);
+  setTimeout(()=>fc.remove(),800);
+}
+setInterval(launchFirecracker,500);
+
+</script>
+</body>
+</html>
