@@ -14,43 +14,17 @@ body{margin:0;padding:0;font-family:"Cursive",sans-serif;background:linear-gradi
 .letter::before,.letter::after{content:"🎀";position:absolute;font-size:22px;top:8px;}
 .letter::before{left:12px;}
 .letter::after{right:12px;}
-.memories{display:flex;flex-direction:column;gap:20px;align-items:center;}
-/* Page 3 Memories - Mobile Friendly */
-.memories {
-  display: flex;
-  flex-wrap: wrap;         /* Allow images to go to next line */
-  gap: 10px;               /* Space between images */
-  justify-content: center; /* Center images */
-}
 
-.memories img {
-  width: 45%;        /* Small enough for 2 images per row */
-  max-width: 150px;  /* Ensure images don’t get too big */
-  height: auto;      /* Keep aspect ratio */
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  display: block;
-}
+/* Memories zigzag layout (kept as original) */
+.memories{display:flex;flex-direction:column;gap:20px;align-items:center;}
+.memories img{width:45%;max-width:150px;height:auto;border-radius:15px;box-shadow:0 4px 10px rgba(0,0,0,0.3);}
 .memories img:nth-child(odd){transform:translateX(-20px);}
 .memories img:nth-child(even){transform:translateX(20px);}
+
 .cake-container{display:flex;flex-direction:column;align-items:center;}
-.cake{margin:20px auto;position:relative;width:120px;}
-.layer{width:120px;height:40px;background:pink;border-radius:8px;margin:0 auto;border:2px solid #fff;}
-.layer:nth-child(1){background:#ffe4e1;width:100px;}
-.layer:nth-child(2){background:#ffc0cb;width:110px;}
-.layer:nth-child(3){background:#ffb6c1;width:120px;}
-.cherry{width:15px;height:15px;background:red;border-radius:50%;position:absolute;top:-10px;left:50%;transform:translateX(-50%);}
-.balloon{position:absolute;bottom:-100px;width:40px;height:55px;background:pink;border-radius:50%;animation:floatUp 8s linear infinite;}
-@keyframes floatUp{from{transform:translateY(0);opacity:1;}to{transform:translateY(-120vh);opacity:0;}}
-.sparkle{position:absolute;color:gold;font-size:18px;animation:fall 3s linear infinite;}
-@keyframes fall{0%{transform:translateY(-20px);opacity:1;}100%{transform:translateY(100vh);opacity:0;}}
-.cracker{position:absolute;width:6px;height:6px;background:yellow;border-radius:50%;animation:explode 1s linear forwards;}
-@keyframes explode{from{transform:scale(1);opacity:1;}to{transform:scale(4);opacity:0;}}
-.decor{position:absolute;font-size:18px;opacity:0.7;animation: floatDecor 5s infinite ease-in-out;}
-@keyframes floatDecor{0%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-10px) rotate(15deg);}100%{transform:translateY(0) rotate(0deg);}}
 .btn{margin-top:20px;padding:10px 20px;background:#ff4d6d;color:white;border:none;border-radius:20px;cursor:pointer;font-size:16px;}
 .btn:hover{background:#d6336c;}
-/* Piñata */
+
 #nail{width:12px;height:12px;background:black;border-radius:50%;position:absolute;top:20px;left:50%;transform:translateX(-50%);}
 #pinata-container{position:absolute;top:150px;left:50%;transform-origin:top center;}
 #rope{width:4px;height:150px;background:black;transform-origin:top center;margin:0 auto;}
@@ -58,77 +32,31 @@ body{margin:0;padding:0;font-family:"Cursive",sans-serif;background:linear-gradi
 #pinata.broken{animation:breakFade 1s forwards;}
 @keyframes breakFade{0%{transform:scale(1) rotate(0deg);opacity:1;}30%{transform:scale(1.2) rotate(15deg);opacity:0.8;}60%{transform:scale(0.8) rotate(-20deg);opacity:0.5;}100%{transform:scale(0) rotate(45deg);opacity:0;}}
 .drop{position:absolute;font-size:40px;}
-/* Heart Page */
+
 .heart{position:absolute;font-size:50px;cursor:pointer;user-select:none;opacity:0;transition:opacity 0.5s,transform 0.2s;}
 .loveMsg{position:absolute;font-size:20px;color:red;font-weight:bold;user-select:none;}
+#page1 h1{position:relative;top:-100px;opacity:0;animation: dropDown 1s forwards;}
+@keyframes dropDown{to{top:0;opacity:1;}}
 
-/* Page 1 Text Animation */
-#page1 h1{
-  position:relative;
-  top:-100px;
-  opacity:0;
-  animation: dropDown 1s forwards;
-}
-@keyframes dropDown{
-  to{
-    top:0;
-    opacity:1;
-  }
-}
+/* Floating emojis theme 💓💗💋❤ */
+.decor{position:absolute;font-size:18px;opacity:0.7;animation: floatDecor 5s infinite ease-in-out;}
+@keyframes floatDecor{0%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-10px) rotate(15deg);}100%{transform:translateY(0) rotate(0deg);}}
 
-/* Page 6 Sparkles */
-.sparkleBox{
-  position:absolute;
-  width:100%;
-  height:100%;
-  pointer-events:none;
-}
-.sparkleDiv{
-  position:absolute;
-  width:6px;
-  height:6px;
-  background:gold;
-  border-radius:50%;
-  opacity:0.8;
-  animation:fall 3s linear infinite;
-}
-@keyframes fall{
-  0%{transform:translateY(-10px); opacity:1;}
-  100%{transform:translateY(100vh); opacity:0;}
-}
+.sparkleDiv{position:absolute;width:6px;height:6px;background:gold;border-radius:50%;opacity:0.8;animation:fall 3s linear infinite;}
+@keyframes fall{0%{transform:translateY(-10px);opacity:1;}100%{transform:translateY(100vh);opacity:0;}}
 
-/* Page 6 Balloons */
-.balloonDiv{
-  position:absolute;
-  width:30px;
-  height:40px;
-  background:pink;
-  border-radius:50% 50% 50% 50%;
-  animation:floatUp 8s linear infinite;
-}
-@keyframes floatUp{
-  0%{transform:translateY(100vh);}
-  100%{transform:translateY(-50px);}
-}
+.balloonDiv{position:absolute;width:30px;height:40px;background:pink;border-radius:50% 50% 50% 50%;animation:floatUp 8s linear infinite;}
+@keyframes floatUp{0%{transform:translateY(100vh);}100%{transform:translateY(-50px);}}
 
-/* Page 6 Firecrackers */
-.firecracker{
-  position:absolute;
-  width:4px;
-  height:20px;
-  background:red;
-  animation:explodeFire 0.8s forwards;
-}
-@keyframes explodeFire{
-  0%{transform:scale(1) translateY(0); opacity:1;}
-  50%{transform:scale(1.5) translateY(-20px); opacity:1;}
-  100%{transform:scale(0) translateY(-40px); opacity:0;}
-}
+.firecracker{position:absolute;width:4px;height:20px;background:red;animation:explodeFire 0.8s forwards;}
+@keyframes explodeFire{0%{transform:scale(1) translateY(0); opacity:1;}50%{transform:scale(1.5) translateY(-20px); opacity:1;}100%{transform:scale(0) translateY(-40px); opacity:0;}}
 </style>
 </head>
 <body>
-  <!-- Background Birthday Song -->
-  <audio id="birthdaySong" src="audio/happy_birthday.mp3" autoplay loop></audio>
+
+<!-- Background Birthday Song -->
+<audio id="birthdaySong" src="audio/happy_birthday.mp3" autoplay loop></audio>
+
 <!-- Page 1 -->
 <div class="page active" id="page1">
   <div class="content">
@@ -213,7 +141,7 @@ function nextPage(){
   pages[currentPage-1].classList.add("active");
 }
 
-// Floating emojis
+// Floating emojis 💓💗💋❤
 const decos=["💋","💓","💗","❤"];
 for(let i=0;i<30;i++){
   let d=document.createElement("div");
@@ -262,7 +190,6 @@ const container=document.getElementById("pinata-container");
 const items=["🍫","🍭","🍬","🍪"];
 let clickCount=0,isBroken=false;
 let angle=0,velocity=0,damping=0.995,amplitude=2;
-
 function animateSwing(){
   if(!isBroken){
     const gravity=0.0012;
@@ -274,23 +201,14 @@ function animateSwing(){
   requestAnimationFrame(animateSwing);
 }
 animateSwing();
-
 function hitSwing(force){velocity+=force;}
-
 pinata.addEventListener("click", ()=>{
   if(isBroken) return;
   clickCount++;
   hitSwing(amplitude);
-  if(clickCount>=3 && clickCount<=6){
-    dropItems(3+clickCount);
-  }
-  if(clickCount===7){
-    dropItems(30);
-    isBroken=true;
-    pinata.classList.add("broken");
-  }
+  if(clickCount>=3 && clickCount<=6) dropItems(3+clickCount);
+  if(clickCount===7){ dropItems(30); isBroken=true; pinata.classList.add("broken"); }
 });
-
 function dropItems(count){
   const rect=pinata.getBoundingClientRect();
   const bottomY=window.innerHeight-60;
@@ -309,10 +227,8 @@ function dropItems(count){
   }
 }
 
-// Page 6 Sparkles, Balloons, Firecrackers
+// Page 6 sparkles, balloons, firecrackers
 const page6=document.getElementById("page6");
-
-// Sparkles
 for(let i=0;i<30;i++){
   const sp=document.createElement("div");
   sp.className="sparkleDiv";
@@ -320,8 +236,6 @@ for(let i=0;i<30;i++){
   sp.style.top=Math.random()*-50+"px";
   page6.appendChild(sp);
 }
-
-// Balloons
 for(let i=0;i<6;i++){
   const bl=document.createElement("div");
   bl.className="balloonDiv";
@@ -329,8 +243,6 @@ for(let i=0;i<6;i++){
   bl.style.animationDelay=(Math.random()*5)+"s";
   page6.appendChild(bl);
 }
-
-// Firecrackers
 function launchFirecracker(){
   const fc=document.createElement("div");
   fc.className="firecracker";
@@ -340,52 +252,14 @@ function launchFirecracker(){
   setTimeout(()=>fc.remove(),800);
 }
 setInterval(launchFirecracker,500);
-function toggleSong(){
-  const song = document.getElementById("birthdaySong");
-  if(song.paused){
-    song.play();
-  } else {
-    song.pause();
-  }
+
 // Autoplay birthday song
+const song = document.getElementById("birthdaySong");
 window.addEventListener('load', () => {
-  const song = document.getElementById('birthdaySong');
   song.play().catch(() => {
-    // If autoplay is blocked, play on first user click
-    document.body.addEventListener('click', () => {
-      song.play();
-    }, { once: true });
+    document.body.addEventListener('click', () => { song.play(); }, { once: true });
   });
 });
-
-// Optional play/pause button
-function toggleSong(){
-  const song = document.getElementById("birthdaySong");
-  if(song.paused){
-    song.play();
-  } else {
-    song.pause();
-  }
-// Autoplay birthday song
-window.addEventListener('load', () => {
-  const song = document.getElementById('birthdaySong');
-  song.play().catch(() => {
-    // If autoplay is blocked, play on first user click
-    document.body.addEventListener('click', () => {
-      song.play();
-    }, { once: true });
-  });
-});
-
-// Optional play/pause button
-function toggleSong(){
-  const song = document.getElementById("birthdaySong");
-  if(song.paused){
-    song.play();
-  } else {
-    song.pause();
-  }
-}
 </script>
 </body>
-</html>
+    </html>
