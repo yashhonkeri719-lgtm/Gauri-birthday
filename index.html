@@ -15,18 +15,18 @@ body{margin:0;padding:0;font-family:"Cursive",sans-serif;background:linear-gradi
 .letter::before{left:12px;}
 .letter::after{right:12px;}
 .memories{display:flex;flex-direction:column;gap:20px;align-items:center;}
-./* Memories Page */
+/* Page 3 Memories - Mobile Friendly */
 .memories {
   display: flex;
-  flex-wrap: wrap;         /* Allow images to move to next line on small screens */
-  gap: 15px;               /* Space between images */
-  justify-content: center; /* Center images horizontally */
+  flex-wrap: wrap;         /* Allow images to go to next line */
+  gap: 10px;               /* Space between images */
+  justify-content: center; /* Center images */
 }
 
 .memories img {
-  width: 100%;           /* Take full width of container */
-  max-width: 200px;      /* Limit maximum width */
-  height: auto;          /* Maintain aspect ratio */
+  width: 45%;        /* Small enough for 2 images per row */
+  max-width: 150px;  /* Ensure images don’t get too big */
+  height: auto;      /* Keep aspect ratio */
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   display: block;
